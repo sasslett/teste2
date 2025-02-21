@@ -4,45 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aprendizado de Libras com AR</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <!-- Menu de Navegação -->
-    <div id="menu" class="menu">
-        <button onclick="mostrarLetra('A')">Letra A</button>
-        <button onclick="mostrarLetra('B')">Letra B</button>
-        <button onclick="mostrarLetra('C')">Letra C</button>
-    </div>
+    <!-- Definição da Cena AR -->
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; trackingMethod: best;">
+        <!-- Marcador para a letra "A" -->
+        <a-marker preset="hiro">
+            <a-entity gltf-model="url(letra_A.gltf)" scale="0.1 0.1 0.1" position="0 0 0"></a-entity>
+        </a-marker>
 
-    <!-- Cena AR -->
-    <a-scene embedded arjs>
-        <a-scene embedded arjs>
-            <!-- Marcador para a letra "A" -->
-            <a-marker preset="hiro">
-                <!-- Exibindo imagem da letra A em Libras -->
-                <a-plane src="modelos/letra_A.png" width="1" height="1" position="0 0 0"></a-plane>
-            </a-marker>
-    
-            <!-- Marcador para a letra "B" -->
-            <a-marker preset="kanji">
-                <!-- Exibindo imagem da letra B em Libras -->
-                <a-plane src="url(imagens/letra_B.png)" width="1" height="1" position="0 0 0"></a-plane>
-            </a-marker>
-    
-            <!-- Marcador para a letra "C" -->
-            <a-marker preset="kanji">
-                <!-- Exibindo imagem da letra C em Libras -->
-                <a-plane src="url(imagens/letra_C.png)" width="1" height="1" position="0 0 0"></a-plane>
-            </a-marker>
-        <!-- Câmera AR -->
+        <!-- Marcador para a letra "B" -->
+        <a-marker preset="kanji">
+            <a-entity gltf-model="url(letra_B.gltf)" scale="0.1 0.1 0.1" position="0 0 0"></a-entity>
+        </a-marker>
+
+        <!-- Câmera para a visão da AR -->
         <a-camera></a-camera>
     </a-scene>
 
     <!-- Scripts do A-Frame e AR.js -->
-    <script src="libs/aframe.min.js"></script>
-    <script src="libs/aframe-ar.js"></script>
-
-    <!-- Script Personalizado -->
-    <script src="script.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
 </body>
 </html>
+
