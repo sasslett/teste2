@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprendizado de Libras com AR</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Menu de Navegação -->
+    <div id="menu" class="menu">
+        <button onclick="mostrarLetra('A')">Letra A</button>
+        <button onclick="mostrarLetra('B')">Letra B</button>
+        <button onclick="mostrarLetra('C')">Letra C</button>
+    </div>
+
+    <!-- Cena AR -->
+    <a-scene embedded arjs>
+        <a-scene embedded arjs>
+            <!-- Marcador para a letra "A" -->
+            <a-marker preset="hiro">
+                <!-- Exibindo imagem da letra A em Libras -->
+                <a-plane src="modelos/letra_A.png" width="1" height="1" position="0 0 0"></a-plane>
+            </a-marker>
+    
+            <!-- Marcador para a letra "B" -->
+            <a-marker preset="kanji">
+                <!-- Exibindo imagem da letra B em Libras -->
+                <a-plane src="url(imagens/letra_B.png)" width="1" height="1" position="0 0 0"></a-plane>
+            </a-marker>
+    
+            <!-- Marcador para a letra "C" -->
+            <a-marker preset="kanji">
+                <!-- Exibindo imagem da letra C em Libras -->
+                <a-plane src="url(imagens/letra_C.png)" width="1" height="1" position="0 0 0"></a-plane>
+            </a-marker>
+        <!-- Câmera AR -->
+        <a-camera></a-camera>
+    </a-scene>
+
+    <!-- Scripts do A-Frame e AR.js -->
+    <script src="libs/aframe.min.js"></script>
+    <script src="libs/aframe-ar.js"></script>
+
+    <!-- Script Personalizado -->
+    <script src="script.js"></script>
+</body>
+</html>
