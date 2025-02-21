@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ensinar Libras com AR</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Inclusão do AR.js e A-Frame -->
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js/aframe/build/aframe-ar.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Aprenda Libras com Realidade Aumentada!</h1>
+    </header>
+
+    <div id="ar-container">
+        <a-scene embedded arjs>
+            <!-- Defina o marcador AR -->
+            <a-marker preset="hiro">
+                <!-- Aqui usamos uma imagem 2D no lugar de um modelo 3D -->
+                <a-plane 
+                    position="0 0 0" 
+                    width="2" height="2" 
+                    material="src: url(sinal-libras.png); transparent: true;">
+                </a-plane>
+            </a-marker>
+            <a-entity camera></a-entity>
+        </a-scene>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Libras AR. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
